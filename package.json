@@ -1,0 +1,20 @@
+{
+  "name": "owm-toolkit",
+  "version": "0.1.0",
+  "description": "OpenWeatherMap utility toolkit.",
+  "author": "pengfluf",
+  "repository": "pengfluf/owm-toolkit",
+  "license": "MIT",
+  "keywords": [
+    "openweathermap",
+    "weather",
+    "utility",
+    "toolkit"
+  ],
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
