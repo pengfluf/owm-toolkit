@@ -2,8 +2,11 @@
   "name": "owm-toolkit",
   "version": "0.1.0",
   "description": "OpenWeatherMap utility toolkit.",
-  "author": "pengfluf",
-  "repository": "pengfluf/owm-toolkit",
+  "author": "pengfluf <pengfluf@tutanota.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pengfluf/owm-toolkit.git"
+  },
   "license": "MIT",
   "keywords": [
     "openweathermap",
@@ -11,10 +14,60 @@
     "utility",
     "toolkit"
   ],
-  "main": "index.js",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest --coverage"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "modules": false
+        }
+      ],
+      "stage-0"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "transform-es2015-modules-commonjs",
+          "dynamic-import-node"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/*.test.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 98,
+        "branches": 91,
+        "functions": 98,
+        "lines": 98
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "testRegex": "tests/.*\\.test\\.js$"
+  },
   "devDependencies": {
+    "babel-plugin-dynamic-import-node": "^2.1.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.2.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^2.7.0",
+    "jest": "^23.6.0",
+    "prettier": "1.14.3"
   }
 }
