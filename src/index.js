@@ -1,10 +1,13 @@
+import fetch from 'node-fetch';
+
 import { BASE_URL } from './constants';
 import getStepsFromDays from './utils/getStepsFromDays';
 
 export default class OWMToolkit {
   constructor(apiKey, units, lang) {
-    this.apiKey = apiKey;
-    if (typeof this.apiKey !== 'string') {
+    // Make this private in the future
+    this.$apiKey = apiKey;
+    if (typeof this.$apiKey !== 'string') {
       throw new Error('API key must be specified.');
     }
 
@@ -15,7 +18,7 @@ export default class OWMToolkit {
   // URL templating with the specific endpoint
   $getUrl(endpoint) {
     return `${BASE_URL}${endpoint}?APPID=${
-      this.apiKey
+      this.$apiKey
     }&units=${this.units}`;
   }
 
@@ -32,13 +35,6 @@ export default class OWMToolkit {
       `${this.$getUrl(
         '/forecast',
       )}&id=${id}&cnt=${getStepsFromDays(days)}`,
-    ).then(res => res.json());
-  }
-
-  // Get daily weather forecast for 1-16 days
-  getDaily(id, days) {
-    return fetch(
-      `${this.$getUrl('/forecast/daily')}&cnt=${days}`,
     ).then(res => res.json());
   }
 
