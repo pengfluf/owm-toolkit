@@ -1,9 +1,12 @@
 import fetch from 'node-fetch';
 
 import { BASE_URL } from './constants';
-import getStepsFromDays from './utils/getStepsFromDays';
 
-export default class OWMToolkit {
+import getStepsFromDays from './utils/getStepsFromDays';
+import getDaysFromHours from './utils/getDaysFromHours';
+import removeDuplicates from './utils/removeDuplicates';
+
+class OWMToolkit {
   constructor(apiKey, units, lang) {
     // Make this private in the future
     this.$apiKey = apiKey;
@@ -30,18 +33,28 @@ export default class OWMToolkit {
   }
 
   // Get daily forecast with 3 hours step for 1-5 days
-  getThreeHours(id, days) {
+  getThreeHours(id, days = 5) {
     return fetch(
       `${this.$getUrl(
         '/forecast',
       )}&id=${id}&cnt=${getStepsFromDays(days)}`,
-    ).then(res => res.json());
+    )
+      .then(res => res.json())
+      .then(data => ({
+        ...data,
+        list: getDaysFromHours(data.list),
+      }));
   }
 
   // Get cities that matched the provided query
   findCity(city) {
-    return fetch(`${this.$getUrl('/find')}&q=${city}`).then(
-      res => res.json(),
-    );
+    return fetch(`${this.$getUrl('/find')}&q=${city}`)
+      .then(res => res.json())
+      .then(data => ({
+        ...data,
+        list: removeDuplicates(data.list),
+      }));
   }
 }
+
+export default OWMToolkit;

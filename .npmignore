@@ -1,0 +1,14 @@
+coverage
+node_modules
+src
+
+.eslintrc
+
+.git
+.gitignore
+
+docs
+README.md
+
+yarn.lock
+package-lock.json

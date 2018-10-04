@@ -44,7 +44,12 @@ describe('OWMToolkit', () => {
   });
 
   describe('getThreeHours', () => {
-    it('Returns the correct result', async () => {
+    it("Returns the correct result when days aren't specified", async () => {
+      const response = await owm.getThreeHours(cityID);
+      expect(response.city.id).toBe(cityID);
+    });
+
+    it('Returns the correct result when days are specified', async () => {
       const response = await owm.getThreeHours(cityID, 1);
       expect(response.city.id).toBe(cityID);
     });

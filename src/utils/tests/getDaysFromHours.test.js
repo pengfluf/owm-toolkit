@@ -1,4 +1,4 @@
-import { initial, expected } from './data/lists';
+import { initial, expected } from './data/threeHoursLists';
 import getDaysFromHours from '../getDaysFromHours';
 
 describe('getDaysFromHours', () => {
