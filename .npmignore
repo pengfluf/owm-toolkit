@@ -12,3 +12,5 @@ README.md
 
 yarn.lock
 package-lock.json
+
+webpack.config.js
