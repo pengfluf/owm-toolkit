@@ -2,7 +2,7 @@
 
 Toolkit to reduce pain using OpenWeatherMap API.
 
-## Why are there so few features?
+## Why are there so few methods?
 
 It's because of OWM API free plan limitations.
 This toolkit is mainly built for beginners doing the common weather application test tasks.
@@ -30,18 +30,24 @@ import { OWMToolkit } from 'owm-toolkit';
 
 const owm = new OWMToolkit('myApiKey');
 ```
+#### General usage of any method (examples below are without .then() and .catch())
+```javascript
+owm.SOME_METHOD(498817)
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+```
 
 #### Get current weather data
 ```javascript
-const currentWeather = owm.getCurrent(498817);
+owm.getCurrent(498817)
 ```
 
 #### Get 5 day / 3 hour forecast
 ```javascript
-const threeHours = owm.getThreeHours(498817);
+owm.getThreeHours(498817)
 ```
 
 #### Find city
 ```javascript
-const results = owm.findCity('Saint Petersburg, RU');
+owm.findCity('Saint Petersburg, RU')
 ```

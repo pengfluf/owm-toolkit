@@ -22,7 +22,7 @@ export class OWMToolkit {
   $getUrl(endpoint) {
     return `${BASE_URL}${endpoint}?APPID=${
       this.$apiKey
-    }&units=${this.units}`;
+    }&units=${this.units}&lang=${this.lang}`;
   }
 
   // Get current forecast
