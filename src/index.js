@@ -6,7 +6,7 @@ import getStepsFromDays from './utils/getStepsFromDays';
 import getDaysFromHours from './utils/getDaysFromHours';
 import removeDuplicates from './utils/removeDuplicates';
 
-class OWMToolkit {
+export class OWMToolkit {
   constructor(apiKey, units, lang) {
     // Make this private in the future
     this.$apiKey = apiKey;
@@ -56,5 +56,3 @@ class OWMToolkit {
       }));
   }
 }
-
-export default OWMToolkit;

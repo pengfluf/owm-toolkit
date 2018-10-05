@@ -13,8 +13,21 @@ All examples related to Saint-Petersburg, Russia. Its ID on OpenWeatherMap is **
 
 For more details check out [API reference](docs/api-reference.md).
 
+#### Install dependency
+```bash
+npm install owm-toolkit --save
+```
+
+Or you can use [Yarn](https://yarnpkg.com) (which is faster):
+```bash
+yarn add owm-toolkit
+```
+
+
 #### Initialize OWMToolkit instance
 ```javascript
+import { OWMToolkit } from 'owm-toolkit';
+
 const owm = new OWMToolkit('myApiKey');
 ```
 

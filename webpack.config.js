@@ -1,6 +1,8 @@
 const path = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
 
+const libraryName = 'owm-toolkit';
+
 module.exports = {
   mode: 'production',
 
@@ -8,10 +10,10 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-
-    filename: 'owm-toolkit.min.js',
-
-    globalObject: 'this',
+    filename: `${libraryName}.min.js`,
+    library: libraryName,
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
 
   devtool: 'source-map',
@@ -41,4 +43,8 @@ module.exports = {
       test: /\.js$/,
     }),
   ],
+
+  optimization: {
+    minimize: false,
+  },
 };

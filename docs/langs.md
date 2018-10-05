@@ -4,8 +4,6 @@
 - Bulgarian – bg
 - Catalan – ca
 - Czech – cz
-- Chinese Simplified – zh_cn
-- Chinese Traditional – zh_tw
 - German – de
 - Greek – el
 - English – en
@@ -33,3 +31,5 @@
 - Turkish – tr
 - Ukrainian – ua
 - Vietnamese – vi
+- Chinese Simplified – zh_cn
+- Chinese Traditional – zh_tw
